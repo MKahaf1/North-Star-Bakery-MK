@@ -364,6 +364,209 @@ footer p {
   font-size: 0.9rem;
 }
 
+
+/* ---------- 7. Pre-Order List (Touchstone 4) ---------- */
+
+/* Elements hidden by JavaScript stay hidden even if they use flex */
+[hidden] {
+  display: none !important;
+}
+
+.product-actions {
+  margin-top: 0.5rem;
+}
+
+/* "Add" buttons don't stretch to fill their row */
+.add-btn {
+  flex: none;
+}
+
+.add-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.add-status {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #6B3E26;
+}
+
+.add-status:empty {
+  display: none;
+}
+
+/* The list panel gets a thicker brown top border so it stands out */
+.preorder-panel {
+  border-top-color: #6B3E26;
+}
+
+.preorder-items {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+/* Flexbox: each list row stacks on mobile */
+.preorder-items li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(107, 62, 38, 0.2);
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-info span {
+  font-size: 0.9rem;
+}
+
+.item-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.qty-btn {
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.qty-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.qty {
+  min-width: 2ch;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Secondary buttons: outlined instead of filled */
+.secondary-btn,
+.remove-btn {
+  flex: none;
+  background-color: transparent;
+  color: #6B3E26;
+}
+
+.remove-btn {
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+}
+
+.list-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* A link that looks like the main button */
+.button-link {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #6B3E26;
+  border-radius: 6px;
+  background-color: #6B3E26;
+  color: #FFF8F0;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+main a.button-link {
+  color: #FFF8F0;
+  text-decoration: none;
+}
+
+main a.button-link:hover {
+  background-color: #D88C5A;
+  border-color: #D88C5A;
+  color: #2F2A26;
+}
+
+/* Saved list shown above the contact form */
+.preorder-summary {
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  border-left: 4px solid #D88C5A;
+  background-color: rgba(216, 140, 90, 0.1);
+  border-radius: 0 6px 6px 0;
+}
+
+.preorder-summary ul {
+  margin-bottom: 0.75rem;
+}
+
+/* ---------- 8. Form Validation Feedback (Touchstone 4) ---------- */
+
+.field-hint,
+.char-count {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+}
+
+.field-hint {
+  margin: 0 0 0.3rem;
+}
+
+/* Invalid fields: thicker brown border and a peach tint */
+input.invalid,
+select.invalid,
+textarea.invalid {
+  border: 2px solid #6B3E26;
+  background-color: rgba(216, 140, 90, 0.15);
+}
+
+/* Error text sits directly under its field */
+.error-message {
+  display: block;
+  margin-top: 0.35rem;
+  color: #6B3E26;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.error-message:empty {
+  display: none;
+}
+
+/* A warning symbol so errors don't rely on color alone */
+.error-message::before {
+  content: "⚠ ";
+}
+
+/* Message at the top of the form after Send Request */
+.form-status {
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+  max-width: none;
+}
+
+.form-status.error {
+  border: 2px solid #6B3E26;
+  background-color: rgba(216, 140, 90, 0.15);
+}
+
+.form-status.success {
+  border: 2px solid #D88C5A;
+  background-color: #6B3E26;
+  color: #FFF8F0;
+}
+
 /* =========================================================
    MEDIA QUERY 1: Tablets and small laptops (768px and up)
    ========================================================= */
@@ -419,6 +622,17 @@ footer p {
   /* Team cards line up in a row */
   .team-grid {
     flex-direction: row;
+  }
+
+  /* Pre-order list rows: name on the left, controls on the right */
+  .preorder-items li {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .remove-btn {
+    margin-left: 0.5rem;
   }
 
   h2 {
