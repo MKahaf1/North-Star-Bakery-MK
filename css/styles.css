@@ -1,0 +1,469 @@
+/* =========================================================
+   North Star Bakery - Main Stylesheet
+   Touchstone 3: Visual Design and Responsive Layout
+
+   Approach: mobile-first. The base styles below are written
+   for small screens. Media queries at the bottom of the file
+   adjust the layout for tablets (768px+) and desktops (1024px+).
+
+   COLOR PALETTE (4 colors)
+     Cream     #FFF8F0  - page background, text on brown
+     Brown     #6B3E26  - headings, nav, buttons, footer
+     Peach     #D88C5A  - accent borders, hover, focus (never used for text)
+     Charcoal  #2F2A26  - body text
+
+   FONTS (2 families)
+     Alegreya     - headings (warm, handmade serif)
+     Nunito Sans  - body text, nav, and form controls
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Nunito+Sans:wght@400;700&display=swap");
+
+/* ---------- 1. Base / Reset ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #FFF8F0;
+  color: #2F2A26;
+  font-family: "Nunito Sans", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Images and video never overflow their container */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- 2. Typography ---------- */
+
+h1,
+h2,
+h3,
+legend {
+  font-family: "Alegreya", Georgia, serif;
+  color: #6B3E26;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  max-width: 65ch; /* keeps lines a comfortable reading length */
+}
+
+strong {
+  color: #6B3E26;
+}
+
+/* Text links inside page content */
+main a {
+  color: #6B3E26;
+  font-weight: 700;
+  text-decoration-color: #D88C5A;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+main a:hover {
+  text-decoration-color: #6B3E26;
+}
+
+/* Visible keyboard focus on every interactive element */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #D88C5A;
+  outline-offset: 2px;
+}
+
+/* ---------- 3. Header and Navigation ---------- */
+
+.site-header {
+  border-bottom: 4px solid #D88C5A;
+  padding: 1.25rem 0;
+}
+
+/* Flexbox: stacks the brand and nav on mobile */
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem; /* matches main so edges line up */
+}
+
+/* Flexbox: logo sits beside the bakery name */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  width: 64px;
+  flex-shrink: 0;
+}
+
+.tagline {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+}
+
+/* Flexbox: nav links wrap onto two rows on small phones */
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  display: block;
+  padding: 0.5rem 0.9rem;
+  border-bottom: 3px solid transparent;
+  color: #6B3E26;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-list a:hover {
+  background-color: #6B3E26;
+  color: #FFF8F0;
+}
+
+/* Marks the page the visitor is currently on */
+.nav-list a.current {
+  border-bottom-color: #D88C5A;
+}
+
+/* ---------- 4. Main Layout ---------- */
+
+/* Flexbox: main content is a single column on mobile */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2rem;
+}
+
+/* Every section is a "card" with the same look on all pages */
+main section {
+  min-width: 0; /* stops wide content from stretching a flex item */
+  padding: 1.25rem;
+  border: 1px solid rgba(107, 62, 38, 0.2);
+  border-top: 4px solid #D88C5A;
+  border-radius: 8px;
+}
+
+/* Content images get soft corners */
+main img {
+  border-radius: 6px;
+}
+
+/* Text + image sections (stacked on mobile) */
+.split {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.split p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lists inside sections */
+main ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+main li {
+  margin-bottom: 0.5rem;
+}
+
+/* Hours of operation */
+.hours p {
+  margin-bottom: 0.4rem;
+}
+
+/* Figure and caption on the Products page */
+figure {
+  margin: 0;
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Video and audio */
+video {
+  margin: 0 0 1rem;
+  border-radius: 6px;
+}
+
+audio {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Team cards on the About page (stacked on mobile) */
+.team-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.team-grid article {
+  flex: 1;
+  padding: 1rem;
+  border-left: 4px solid #D88C5A;
+  background-color: rgba(216, 140, 90, 0.1);
+  border-radius: 0 6px 6px 0;
+}
+
+.team-grid article p {
+  margin-bottom: 0;
+}
+
+/* Address block on the Contact page */
+address {
+  margin: 1rem 0;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+/* ---------- 5. Forms ---------- */
+
+fieldset {
+  margin: 0 0 1.25rem;
+  padding: 1rem;
+  border: 2px solid #D88C5A;
+  border-radius: 8px;
+}
+
+legend {
+  padding: 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+form p {
+  margin-bottom: 1rem;
+  max-width: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1.5px solid rgba(47, 42, 38, 0.5);
+  border-radius: 6px;
+  background-color: #FFF8F0;
+  color: #2F2A26;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #6B3E26;
+}
+
+/* Flexbox: buttons sit side by side and share the width */
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+button {
+  flex: 1 1 auto;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #6B3E26;
+  border-radius: 6px;
+  background-color: #6B3E26;
+  color: #FFF8F0;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #D88C5A;
+  border-color: #D88C5A;
+  color: #2F2A26;
+}
+
+/* The reset button is styled as a secondary action */
+button[type="reset"] {
+  background-color: transparent;
+  color: #6B3E26;
+}
+
+button[type="reset"]:hover {
+  background-color: #D88C5A;
+  color: #2F2A26;
+}
+
+/* ---------- 6. Footer ---------- */
+
+footer {
+  padding: 1.5rem 1rem;
+  background-color: #6B3E26;
+  color: #FFF8F0;
+  text-align: center;
+}
+
+footer p {
+  margin: 0 auto;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   MEDIA QUERY 1: Tablets and small laptops (768px and up)
+   ========================================================= */
+@media (min-width: 768px) {
+
+  .header-inner {
+    padding: 0 1.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .logo {
+    width: 80px;
+  }
+
+  /* Nav links fit on one line now */
+  .nav-list {
+    flex-wrap: nowrap;
+  }
+
+  /* Main: sections can now sit side by side */
+  main {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  main section {
+    flex: 1 1 100%;
+    padding: 1.75rem;
+  }
+
+  /* Two sections share one row */
+  main section.half {
+    flex: 1 1 calc(50% - 0.75rem);
+  }
+
+  /* Text and image sit next to each other */
+  .split {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .split > * {
+    flex: 1 1 0;
+    min-width: 0; /* lets large images shrink to fit their half */
+  }
+
+  /* Team cards line up in a row */
+  .team-grid {
+    flex-direction: row;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* =========================================================
+   MEDIA QUERY 2: Desktops (1024px and up)
+   ========================================================= */
+@media (min-width: 1024px) {
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  .logo {
+    width: 96px;
+  }
+
+  /* Header: brand on the left, navigation on the right */
+  .header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .tagline {
+    max-width: 38ch;
+  }
+
+  /* The nav keeps its width; the brand text wraps instead */
+  .site-header nav {
+    flex-shrink: 0;
+  }
+
+  main section {
+    padding: 2.25rem;
+  }
+
+  /* Contact page: form takes 2/3, visit info takes 1/3 */
+  main section.main-col {
+    flex: 2 1 0;
+  }
+
+  main section.side-col {
+    flex: 1 1 0;
+  }
+}

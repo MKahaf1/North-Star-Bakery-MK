@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Pre-Orders | North Star Bakery</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img class="logo" src="media/bakery-logo_c.png" alt="North Star Bakery logo">
+        <div>
+          <h1>Contact &amp; Pre-Orders</h1>
+          <p class="tagline">Tell us what you need and we'll use your request to prepare for your visit.</p>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="current" aria-current="page">Contact &amp; Pre-Orders</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="main-col">
+      <h2>Request an Item or Ask a Question</h2>
+      <p>Use this form for a pre-order request or a general bakery question. For large celebration orders, include as much detail as possible so we can confirm availability and timing.</p>
+
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Customer Information</legend>
+
+          <p>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+          </p>
+
+          <p>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Request Details</legend>
+
+          <p>
+            <label for="pickup-date">Pickup date:</label>
+            <input type="date" id="pickup-date" name="pickup-date" required>
+          </p>
+
+          <p>
+            <label for="request-type">Request type:</label>
+            <select id="request-type" name="request-type" required>
+              <option value="">Please select one</option>
+              <option value="pre-order">Pre-order</option>
+              <option value="general-question">General question</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="item-details">Item details:</label>
+            <textarea id="item-details" name="item-details" rows="7" cols="50" placeholder="List the item(s), quantities, size, flavor, or event details." required></textarea>
+          </p>
+
+          <p>
+            <label for="allergy-notes">Allergy notes, if applicable:</label>
+            <textarea id="allergy-notes" name="allergy-notes" rows="5" cols="50" placeholder="Tell us about food allergies or ingredient concerns."></textarea>
+          </p>
+        </fieldset>
+
+        <p class="form-actions">
+          <button type="submit">Send Request</button>
+          <button type="reset">Clear Form</button>
+        </p>
+      </form>
+    </section>
+
+    <section class="side-col">
+      <h2>Visit Us</h2>
+      <img src="media/bakery-storefront_c.png" alt="North Star Bakery storefront and front entrance">
+      <address>
+        North Star Bakery<br>
+        125 North Star Avenue<br>
+        Jeffersonville, Indiana<br>
+        United States
+      </address>
+      <p><strong>Monday&ndash;Saturday:</strong> 6:00 a.m.&ndash;6:00 p.m.</p>
+      <p><strong>Sunday:</strong> 7:00 a.m.&ndash;2:00 p.m.</p>
+    </section>
+
+    <section>
+      <h2>Planning a Larger Order?</h2>
+      <p>Event planners and families should submit requests as early as possible. Custom quantities and celebration orders may require additional lead time.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 North Star Bakery. Thank you for supporting a neighborhood bakery.</p>
+  </footer>
+</body>
+</html>
