@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact &amp; Pre-Orders | North Star Bakery</title>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -33,18 +34,29 @@
       <h2>Request an Item or Ask a Question</h2>
       <p>Use this form for a pre-order request or a general bakery question. For large celebration orders, include as much detail as possible so we can confirm availability and timing.</p>
 
+      <div id="contact-list" class="preorder-summary" hidden>
+        <h3>Your saved pre-order list</h3>
+        <ul id="contact-list-items"></ul>
+        <button type="button" id="copy-list" class="secondary-btn">Add my list to Item details</button>
+        <p id="copy-status" class="add-status" aria-live="polite"></p>
+      </div>
+
+      <p id="form-status" class="form-status" role="status" aria-live="polite" hidden></p>
+
       <form action="#" method="post">
         <fieldset>
           <legend>Customer Information</legend>
 
           <p>
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" autocomplete="name" required>
+            <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-error">
+            <span class="error-message" id="name-error"></span>
           </p>
 
           <p>
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" autocomplete="email" required>
+            <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-error">
+            <span class="error-message" id="email-error"></span>
           </p>
         </fieldset>
 
@@ -53,26 +65,33 @@
 
           <p>
             <label for="pickup-date">Pickup date:</label>
-            <input type="date" id="pickup-date" name="pickup-date" required>
+            <span class="field-hint" id="pickup-date-hint">Choose a date from tomorrow up to 60 days from today.</span>
+            <input type="date" id="pickup-date" name="pickup-date" required aria-describedby="pickup-date-hint pickup-date-error">
+            <span class="error-message" id="pickup-date-error"></span>
           </p>
 
           <p>
             <label for="request-type">Request type:</label>
-            <select id="request-type" name="request-type" required>
+            <select id="request-type" name="request-type" required aria-describedby="request-type-error">
               <option value="">Please select one</option>
               <option value="pre-order">Pre-order</option>
               <option value="general-question">General question</option>
             </select>
+            <span class="error-message" id="request-type-error"></span>
           </p>
 
           <p>
             <label for="item-details">Item details:</label>
-            <textarea id="item-details" name="item-details" rows="7" cols="50" placeholder="List the item(s), quantities, size, flavor, or event details." required></textarea>
+            <textarea id="item-details" name="item-details" rows="7" cols="50" placeholder="List the item(s), quantities, size, flavor, or event details." required aria-describedby="item-details-count item-details-error"></textarea>
+            <span class="char-count" id="item-details-count">0 / 500 characters</span>
+            <span class="error-message" id="item-details-error"></span>
           </p>
 
           <p>
             <label for="allergy-notes">Allergy notes, if applicable:</label>
-            <textarea id="allergy-notes" name="allergy-notes" rows="5" cols="50" placeholder="Tell us about food allergies or ingredient concerns."></textarea>
+            <textarea id="allergy-notes" name="allergy-notes" rows="5" cols="50" placeholder="Tell us about food allergies or ingredient concerns." aria-describedby="allergy-notes-count allergy-notes-error"></textarea>
+            <span class="char-count" id="allergy-notes-count">0 / 300 characters</span>
+            <span class="error-message" id="allergy-notes-error"></span>
           </p>
         </fieldset>
 

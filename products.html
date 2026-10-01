@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products | North Star Bakery</title>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -34,6 +35,10 @@
         <h2>Breads</h2>
         <p>Our bread selection changes with the baking schedule and season. Expect hearty loaves, sandwich breads, and rustic crusts that work equally well for breakfast or dinner.</p>
         <p><strong>Typical price range:</strong> $5&ndash;$12 per loaf.</p>
+        <div class="product-actions">
+          <button type="button" class="add-btn" data-product-id="artisan-loaf">Add to my pre-order list</button>
+          <p class="add-status" aria-live="polite"></p>
+        </div>
       </div>
       <img src="media/bakery-bread_c.png" alt="Freshly baked artisan breads with golden crusts">
     </section>
@@ -42,12 +47,20 @@
       <h2>Pastries</h2>
       <p>Choose from flaky breakfast pastries, sweet treats, and rotating seasonal selections. Ask about the day's fresh-baked options when you visit.</p>
       <p><strong>Typical price range:</strong> $3&ndash;$7 each or $18&ndash;$30 per assorted box.</p>
+      <div class="product-actions">
+        <button type="button" class="add-btn" data-product-id="pastry-box">Add to my pre-order list</button>
+        <p class="add-status" aria-live="polite"></p>
+      </div>
     </section>
 
     <section class="half">
       <h2>Cakes &amp; Celebration Bakes</h2>
       <p>We prepare cakes and baked goods for birthdays, office gatherings, family celebrations, and neighborhood events. Lead times vary by size and design.</p>
       <p><strong>Typical price range:</strong> $35&ndash;$90 for cakes; custom event orders priced by quantity and design.</p>
+      <div class="product-actions">
+        <button type="button" class="add-btn" data-product-id="celebration-cake">Add to my pre-order list</button>
+        <p class="add-status" aria-live="polite"></p>
+      </div>
     </section>
 
     <section class="split">
@@ -58,6 +71,19 @@
       <div>
         <h2>Our Signature Loaf</h2>
         <p>Because our products are prepared in small batches, availability may change throughout the day. Call or use the <a href="contact.html">pre-order form</a> to request specific items.</p>
+        <div class="product-actions">
+          <button type="button" class="add-btn" data-product-id="signature-loaf">Add to my pre-order list</button>
+          <p class="add-status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+    <section id="my-list" class="preorder-panel">
+      <h2>My Pre-Order List</h2>
+      <p id="list-empty">Your list is empty. Use the &ldquo;Add to my pre-order list&rdquo; buttons above to start one. Your list is saved on this device, so you can come back to it later.</p>
+      <ul id="preorder-items" class="preorder-items"></ul>
+      <div id="list-actions" class="list-actions" hidden>
+        <a class="button-link" href="contact.html">Continue to the pre-order form</a>
+        <button type="button" id="clear-list" class="secondary-btn">Clear list</button>
       </div>
     </section>
   </main>
